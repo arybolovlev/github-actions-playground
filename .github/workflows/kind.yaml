@@ -1,18 +1,25 @@
 name: kind
 
 on:
+  schedule:
+    - cron: '0 * * * *'
   workflow_dispatch:
     inputs:
       kind_version:
-        description: The kind version
-        default: 0.20.0
+        description: 'Overwrite the kind version. Format: x.y.z. Ex.: 0.20.0.'
+
+env:
+  KIND_VERSION: ${{ github.event.inputs.kind_version == '' && vars.KIND_VERSION || github.event.inputs.kind_version }}
 
 jobs:
   set-up-kind:
     runs-on: ubuntu-latest
     steps:
+      - name: Print the kind version
+        run: |
+          echo v${{ env.KIND_VERSION }}
       - name: Set up kind
         uses: helm/kind-action@fa81e57adff234b2908110485695db0f181f3c67 # v1.7.0
         with:
           wait: 2m
-          version: v${{ github.event.inputs.kind_version }}
+          version: v${{ env.KIND_VERSION }}
