@@ -2,11 +2,11 @@ name: kind
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '25 * * * *'
   workflow_dispatch:
     inputs:
       kind_version:
-        description: 'Overwrite the kind version. Format: x.y.z. Ex.: 0.20.0.'
+        description: 'Overwrite the kind version. Ex.: 0.20.0.'
 
 env:
   KIND_VERSION: ${{ github.event.inputs.kind_version == '' && vars.KIND_VERSION || github.event.inputs.kind_version }}
