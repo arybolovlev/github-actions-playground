@@ -9,7 +9,8 @@ on:
         description: 'Overwrite the kind version. Ex.: 0.20.0.'
 
 env:
-  KIND_VERSION: ${{ github.event.inputs.kind_version == '' && vars.KIND_VERSION || github.event.inputs.kind_version }}
+  #KIND_VERSION: ${{ github.event.inputs.kind_version == '' && vars.KIND_VERSION || github.event.inputs.kind_version }}
+  KIND_VERSION: ${{ github.event.inputs.kind_version || vars.KIND_VERSION }}
 
 jobs:
   set-up-kind:
