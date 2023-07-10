@@ -1,0 +1,18 @@
+name: kind
+
+on:
+  workflow_dispatch:
+    inputs:
+      kind_version:
+        description: The kind version
+        default: 0.20.0
+
+jobs:
+  set-up-kind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up kind
+        uses: helm/kind-action@fa81e57adff234b2908110485695db0f181f3c67 # v1.7.0
+        with:
+          wait: 2m
+          version: v${{ github.event.inputs.kind_version }}
