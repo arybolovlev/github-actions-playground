@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
     inputs:
       kind_version:
-        description: 'Overwrite the kind version. Ex.: 0.20.0.'
+        description: 'The kind version.'
+        default: 0.17.0
 
 env:
-  #KIND_VERSION: ${{ github.event.inputs.kind_version == '' && vars.KIND_VERSION || github.event.inputs.kind_version }}
   KIND_VERSION: ${{ github.event.inputs.kind_version || vars.KIND_VERSION }}
 
 jobs:
