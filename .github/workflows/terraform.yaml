@@ -22,7 +22,7 @@ jobs:
           echo ${{ runner.temp }}
           whereis terraform
           whereis -B ${{ runner.temp }}/* -f terraform
-          echo "TF_ACC_TERRAFORM_PATH=`whereis -B ${{ runner.temp }}/* -f terraform`" >> "$GITHUB_ENV"
+          echo "TF_ACC_TERRAFORM_PATH=`whereis -B ${{ runner.temp }}/* -f terraform | awk '{print $2}'`" >> "$GITHUB_ENV"
           terraform --version
       - name: Print Path
         run: |
