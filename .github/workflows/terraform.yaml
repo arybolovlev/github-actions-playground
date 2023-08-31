@@ -20,8 +20,8 @@ jobs:
       - name: Find Terraform
         run: |
           echo ${{ runner.temp }}
-          whereis terraform
-          whereis -q -B ${{ runner.temp }}/* -f terraform
+          whereis -q terraform
+          whereis -B ${{ runner.temp }}/* -q -f terraform
           echo "{TF_ACC_TERRAFORM_PATH}={whereis -q -B ${{ runner.temp }}/* -f terraform}" >> "$GITHUB_ENV"
           terraform --version
       - name: Print Path
