@@ -1,4 +1,4 @@
-name: Acceptance Tests (kind)
+name: Terraform
 
 on:
   workflow_dispatch:
@@ -21,5 +21,9 @@ jobs:
         run: |
           echo ${{ runner.temp }}
           whereis terraform
-          whereis -B ${{ runner.temp }}/* -f terraform
+          whereis -q -B ${{ runner.temp }}/* -f terraform
+          echo "{TF_ACC_TERRAFORM_PATH}={whereis -q -B ${{ runner.temp }}/* -f terraform}" >> "$GITHUB_ENV"
           terraform --version
+      - name: Print Path
+        run: |
+          echo $TF_ACC_TERRAFORM_PATH
