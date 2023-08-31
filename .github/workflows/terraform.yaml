@@ -1,0 +1,25 @@
+name: Acceptance Tests (kind)
+
+on:
+  workflow_dispatch:
+
+env:
+  TERRAFORM_VERSION: '1.5.4'
+
+jobs:
+  acceptance_tests:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1 # v2.0.3
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+          terraform_wrapper: false
+      - name: Find Terraform
+        run: |
+          echo ${{ runner.temp }}
+          whereis terraform
+          whereis -B ${{ runner.temp }}/* -f terraform
+          terraform --version
