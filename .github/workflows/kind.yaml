@@ -3,6 +3,9 @@ name: kind
 on:
   schedule:
     - cron: '25 * * * *'
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       kind_version:
