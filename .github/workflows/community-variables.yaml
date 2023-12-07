@@ -10,9 +10,9 @@ jobs:
   set_community_variables:
     runs-on: ubuntu-latest
     outputs:
-      kind_version: ${{ steps.set_community_variables.outputs.kind_version }}
+      kind_version: '0.20.0'
     steps:
       - id: set_community_variables
         run: |
           echo "Set Community Variables"
-          echo "kind_version=0.20.0" >> "$GITHUB_OUTPUT"
+          # echo "kind_version=0.20.0" >> "$GITHUB_OUTPUT"
