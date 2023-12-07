@@ -1,0 +1,13 @@
+name: Community KinD
+
+on:
+  pull_request:
+    branches:
+      - main
+      - arybolovlev:main
+
+jobs:
+  set_variables:
+    uses: ./.github/workflows/reusable-community-variables.yaml
+  set_up_kind:
+    uses: ./.github/workflows/reusable-kind.yaml
