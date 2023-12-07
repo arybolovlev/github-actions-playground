@@ -13,28 +13,14 @@ on:
         description: 'The kind version.'
         default: 0.17.0
 
-#env:
-#  KIND_VERSION: ${{ github.event.inputs.kind_version || vars.KIND_VERSION }}
+env:
+  KIND_VERSION: ${{ github.event.inputs.kind_version || 0.20.0 }}
 
 permissions: write-all
 
 jobs:
-  set-up-env-variables:
-    permissions: write-all
-    #  actions: write
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set the KinD version
-        env:
-          KIND_VERSION: ${{ vars.KIND_VERSION }}
-        run: |
-          echo v${{ env.KIND_VERSION }}
-      - name: Print the KinD version
-        run: |
-          echo v${{ env.KIND_VERSION }}
   set-up-kind:
     runs-on: ubuntu-latest
-    needs: [set-up-env-variables]
     steps:
       - name: Print the KinD version
         run: |
