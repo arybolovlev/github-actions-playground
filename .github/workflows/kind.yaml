@@ -14,7 +14,7 @@ on:
         default: 0.17.0
 
 env:
-  KIND_VERSION: ${{ github.event.inputs.kind_version || 0.20.0 }}
+  KIND_VERSION: ${{ github.event.inputs.kind_version || '0.20.0' }}
 
 permissions: write-all
 
