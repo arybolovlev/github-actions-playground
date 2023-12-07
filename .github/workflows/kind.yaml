@@ -19,27 +19,27 @@ on:
 jobs:
   set_env_variables:
     uses: ./.github/workflows/community-variables.yaml
-  set_community_variables:
-    needs: [set_env_variables]
-    runs-on: ubuntu-latest
-    outputs:
-      kind_version: ${{ steps.set_community_variables.outputs.kind_version }}
-    steps:
-      - run: |
-          echo v${{ needs.set_env_variables.outputs.kind_version }}
-      - id: set_community_variables
-        run: |
-          echo "Set Community Variables"
-          echo "kind_version=0.20.0" >> "$GITHUB_OUTPUT"
+  # set_community_variables:
+  #   needs: [set_env_variables]
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     kind_version: ${{ steps.set_community_variables.outputs.kind_version }}
+  #   steps:
+  #     - run: |
+  #         echo v${{ needs.set_env_variables.outputs.kind_version }}
+  #     - id: set_community_variables
+  #       run: |
+  #         echo "Set Community Variables"
+  #         echo "kind_version=0.20.0" >> "$GITHUB_OUTPUT"
   set_up_kind:
     runs-on: ubuntu-latest
     needs: [set_env_variables]
     steps:
       - name: Print the KinD version
         run: |
-          echo v${{ needs.set_community_variables.outputs.kind_version }}
+          echo v${{ needs.set_env_variables.outputs.kind_version }}
       - name: Set up kind
         uses: helm/kind-action@dda0770415bac9fc20092cacbc54aa298604d140 # v1.8.0
         with:
           wait: 2m
-          version: v${{ needs.set_community_variables.outputs.kind_version }}
+          version: v${{ needs.set_env_variables.outputs.kind_version }}
