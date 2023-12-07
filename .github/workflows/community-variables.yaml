@@ -7,7 +7,8 @@ jobs:
   set_community_variables:
     runs-on: ubuntu-latest
     outputs:
-      kind_version: ${{ steps.set_community_variables.outputs.kind_version }}
+      kind_version:
+        value: ${{ steps.set_community_variables.outputs.kind_version }}
     steps:
       - id: set_community_variables
         run: |
