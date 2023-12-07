@@ -29,6 +29,9 @@ jobs:
           KIND_VERSION: ${{ vars.KIND_VERSION }}
         run: |
           echo v${{ env.KIND_VERSION }}
+      - name: Print the KinD version
+        run: |
+          echo v${{ env.KIND_VERSION }}
   set-up-kind:
     runs-on: ubuntu-latest
     needs: [set-up-env-variables]
