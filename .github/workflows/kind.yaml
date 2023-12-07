@@ -6,6 +6,7 @@ on:
   pull_request:
     branches:
       - main
+      - arybolovlev:main
   workflow_dispatch:
     inputs:
       kind_version:
