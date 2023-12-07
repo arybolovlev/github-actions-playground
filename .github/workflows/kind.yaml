@@ -25,6 +25,8 @@ jobs:
       - name: Set the KinD version
         env:
           KIND_VERSION: ${{ vars.KIND_VERSION }}
+        run: |
+          echo v${{ env.KIND_VERSION }}
   set-up-kind:
     runs-on: ubuntu-latest
     steps:
