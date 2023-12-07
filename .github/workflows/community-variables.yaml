@@ -1,0 +1,10 @@
+name: Set Community Variables
+
+on:
+  workflow_call:
+
+jobs:
+  set_community_variables:
+    runs-on: ubuntu-latest
+    outputs:
+      kind_version: '0.20.0'
