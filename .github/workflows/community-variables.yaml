@@ -4,15 +4,15 @@ on:
   workflow_call:
     outputs:
       kind_version:
-        value: ${{ jobs.set_community_variables.outputs.kind_version }}
+        description: 'KinD version to set up'
+        value: ${{ jobs.set_variables.outputs.kind_version }}
 
 jobs:
-  set_community_variables:
+  set_variables:
     runs-on: ubuntu-latest
     outputs:
       kind_version: '0.20.0'
     steps:
-      - id: set_community_variables
+      - id: set_variables
         run: |
           echo "Set Community Variables"
-          # echo "kind_version=0.20.0" >> "$GITHUB_OUTPUT"
