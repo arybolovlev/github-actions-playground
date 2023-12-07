@@ -15,6 +15,7 @@ env:
 jobs:
   set-up-kind:
     runs-on: ubuntu-latest
+    environment: contributors
     steps:
       - name: Print the kind version
         run: |
