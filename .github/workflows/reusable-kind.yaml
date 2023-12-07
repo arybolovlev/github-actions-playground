@@ -8,7 +8,7 @@ on:
         type: string
 
 jobs:
-  set_up_kind:
+  reusable_set_up_kind:
     runs-on: ubuntu-latest
     env:
       KIND_VERSION: ${{ inputs.kind_version }}
