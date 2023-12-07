@@ -19,7 +19,7 @@ env:
 jobs:
   set-up-env-variables:
     permissions:
-      actions: actions
+      actions: write
     runs-on: ubuntu-latest
     steps:
       - name: Set the KinD version
