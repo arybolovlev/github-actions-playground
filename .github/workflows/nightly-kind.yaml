@@ -1,0 +1,11 @@
+name: Nightly KinD
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  set_up_kind:
+    uses: ./.github/workflows/reusable-kind.yaml
+    with:
+      kind_version: ${{ vars.KIND_VERSION }}
