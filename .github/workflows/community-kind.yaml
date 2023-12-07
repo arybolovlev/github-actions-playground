@@ -7,9 +7,9 @@ on:
       - arybolovlev:main
 
 jobs:
-  set_variables:
+  community_set_variables:
     uses: ./.github/workflows/reusable-variables.yaml
-  set_up_kind:
+  community_set_up_kind:
     uses: ./.github/workflows/reusable-kind.yaml
     needs: [set_variables]
     with:
