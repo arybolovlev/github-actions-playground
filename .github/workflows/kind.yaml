@@ -16,8 +16,6 @@ on:
 # env:
 #   KIND_VERSION: ${{ github.event.inputs.kind_version || '0.20.0' }}
 
-permissions: write-all
-
 jobs:
   set_env_variables:
     uses: ./.github/workflows/community-variables.yaml
