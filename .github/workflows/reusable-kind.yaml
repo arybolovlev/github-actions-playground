@@ -1,19 +1,17 @@
 name: kind
 
 on:
-  pull_request:
-    branches:
-      - main
-      - arybolovlev:main
+  workflow_call:
+    inputs:
+      kind_version:
+        required: true
+        type: string
 
 jobs:
-  set_variables:
-    uses: ./.github/workflows/community-variables.yaml
   set_up_kind:
     runs-on: ubuntu-latest
-    needs: [set_variables]
     env:
-      KIND_VERSION: ${{ needs.set_variables.outputs.kind_version }}
+      KIND_VERSION: ${{ inputs.kind_version }}
     steps:
       - name: Set up kind
         uses: helm/kind-action@dda0770415bac9fc20092cacbc54aa298604d140 # v1.8.0

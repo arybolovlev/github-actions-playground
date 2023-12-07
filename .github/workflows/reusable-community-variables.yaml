@@ -1,4 +1,4 @@
-name: Set Community Variables
+name: Set Variables
 
 on:
   workflow_call:
@@ -15,4 +15,4 @@ jobs:
     steps:
       - id: set_variables
         run: |
-          echo "Set Community Variables"
+          echo "Set Variables"
