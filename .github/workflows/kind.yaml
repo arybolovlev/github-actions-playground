@@ -16,6 +16,8 @@ on:
 env:
   KIND_VERSION: ${{ github.event.inputs.kind_version || vars.KIND_VERSION }}
 
+permissions: write-all
+
 jobs:
   set-up-env-variables:
     permissions: write-all
