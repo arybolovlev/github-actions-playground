@@ -19,4 +19,4 @@ jobs:
       - name: skopeo
         run: |
           skopeo --version
-          skopeo list-tags docker://docker.io/kindest/node
+          TAG=`skopeo list-tags docker://docker.io/kindest/node | jq '.Tags.[]' | sort -nr | grep -m1 1.29 | tr -d '"'` curl -s https://hub.docker.com/v2/namespaces/kindest/repositories/node/tags/$TAG | jq '.digest'
