@@ -16,3 +16,7 @@ jobs:
       - name: Echo
         run: |
           echo "Hello!"
+      - name: skopeo
+        run: |
+          skopeo --version
+          skopeo list-tags docker://docker.io/kindest/node
