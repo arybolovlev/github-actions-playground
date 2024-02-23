@@ -7,5 +7,5 @@ import (
 
 func main() {
 	fmt.Println(runtime.NumCPU())
-	fmt.Println("remove me")
+	fmt.Println("remove me now")
 }
