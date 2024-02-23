@@ -12,7 +12,7 @@ dependencies:
 - 'go.sum'
 
 documentation:
-- any: ['docs/*.md', '*.md']
+- any: ['fake/**/*.md', 'docs/*.md', '*.md']
   all: ['!CHANGELOG.md']
 
 github_actions:
