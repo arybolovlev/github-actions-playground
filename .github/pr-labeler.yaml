@@ -20,7 +20,7 @@ github_actions:
 - '**/workflows/*.yaml'
 - '**/workflows/*.yml'
 
-golang:
+go:
 - '**/*.go'
 
 helm-chart:
