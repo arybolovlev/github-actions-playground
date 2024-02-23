@@ -14,8 +14,7 @@ dependencies:
 documentation:
 - any: ['*.md']
   all: ['!CHANGELOG.md']
-- any: ['docs/*.md']
-  all: ['!CHANGELOG.md']
+- 'docs/*.md'
 
 github_actions:
 - '**/workflows/*.yaml'
