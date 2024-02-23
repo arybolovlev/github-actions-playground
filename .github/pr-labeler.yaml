@@ -16,6 +16,8 @@ documentation:
   - '*.md'
   - 'charts/**/*.md'
   - 'docs/*.md'
+  all:
+  - '*.md'
   - '!CHANGELOG.md'
 
 github_actions:
