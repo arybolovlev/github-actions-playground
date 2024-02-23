@@ -12,9 +12,10 @@ dependencies:
 - 'go.sum'
 
 documentation:
-- '*.md'
-- 'docs/*.md'
-  # all: ['!CHANGELOG.md']
+- any: ['*.md']
+  all: ['!CHANGELOG.md']
+- any: ['docs/*.md']
+  all: ['!CHANGELOG.md']
 
 github_actions:
 - '**/workflows/*.yaml'
